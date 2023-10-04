@@ -1,0 +1,90 @@
+{
+  "version": 4,
+  "terraform_version": "0.14.7",
+  "serial": 1,
+  "lineage": "random-lineage-string",
+  "outputs": {},
+  "resources": [
+    {
+      "module": "example",
+      "mode": "managed",
+      "type": "azurerm_resource_group",
+      "name": "example",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "id": "/subscriptions/your-subscription-id/resourceGroups/example",
+            "name": "example",
+            "location": "East US",
+            "tags": {},
+            "timeouts": null
+          },
+          "private": "hidden sensitive data"
+        }
+      ]
+    },
+    {
+      "module": "example",
+      "mode": "managed",
+      "type": "azurerm_virtual_network",
+      "name": "example-network",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "id": "/subscriptions/your-subscription-id/resourceGroups/example/providers/Microsoft.Network/virtualNetworks/example-network",
+            "name": "example-network",
+            "location": "East US",
+            "address_space": ["10.0.0.0/16"],
+            "subnets": [
+              {
+                "name": "subnet1",
+                "address_prefix": "10.0.1.0/24"
+              }
+            ]
+          },
+          "private": "hidden sensitive data"
+        }
+      ]
+    },
+    {
+      "module": "example",
+      "mode": "managed",
+      "type": "azurerm_windows_virtual_machine",
+      "name": "example-vm",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "id": "/subscriptions/your-subscription-id/resourceGroups/example/providers/Microsoft.Compute/virtualMachines/example-vm",
+            "name": "example-vm",
+            "location": "East US",
+            "size": "Standard_DS2_v2",
+            "admin_username": "adminuser",
+            "admin_password": "your-password-here",
+            "os_disk": {
+              "name": "example-vm-osdisk",
+              "caching": "ReadWrite",
+              "storage_account_type": "Standard_LRS",
+              "create_option": "FromImage"
+            },
+            "network_interface_ids": [
+              "/subscriptions/your-subscription-id/resourceGroups/example/providers/Microsoft.Network/networkInterfaces/example-nic"
+            ],
+            "os_profile": {
+              "computer_name": "example-vm",
+              "admin_username": "adminuser",
+              "admin_password": "your-password-here"
+            }
+          },
+          "private": "hidden sensitive data"
+        }
+      ]
+    }
+  ],
+  "depends_on": []
+}
